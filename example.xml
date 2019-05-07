@@ -1,0 +1,9 @@
+<shop>
+    <showcases>
+        <showcase x="" y="" z="">
+            <icon item=""/>
+            <buy item="" amount="" price=""/>
+            <sell item="" amount="" price=""/>
+        </showcase>
+    </showcases>
+</shop>
