@@ -137,7 +137,7 @@ class Loader {
         Main.log(Level.FINE, "Attempting to scan database!");
 
         try {
-            ResultSet check = db.prepare("SELECT * FROM `shops`").executeQuery();
+            ResultSet check = db.prepare("SELECT * FROM `Shops`").executeQuery();
 
             // Go through every player shop row, attempt to add it in.
             while (check.next()) {

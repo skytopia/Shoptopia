@@ -162,7 +162,7 @@ public class Commands {
                             sender.sendMessage(SHOP_CREATED);
 
                             // Reflect the creation of this new player shop in the database table.
-                            solar.rpg.skyblock.Main.instance.main().sql().queue("INSERT INTO `shops`(`owner_id`, `amount`, `price`, `item`, `xyz`) VALUES (?,?,?,?,?)",
+                            solar.rpg.skyblock.Main.instance.main().sql().queue("INSERT INTO `Shops`(`owner_id`, `amount`, `price`, `item`, `xyz`) VALUES (?,?,?,?,?)",
                                     found.getID(), amount, price, showcaseProduct.getType() + ":" + showcaseProduct.getData().getData(), chest.getX() + "," + (chest.getY() + 1) + "," + chest.getZ());
                             break;
                         } catch (NumberFormatException ex) {
@@ -210,7 +210,7 @@ public class Commands {
 
                         // Reflect the removal of this player shop in the database table.
                         solar.rpg.skyblock.Main.instance.main().sql().queue(
-                                "DELETE FROM `shops` WHERE (`owner_id`, `xyz`) = (?,?)",
+                                "DELETE FROM `Shops` WHERE (`owner_id`, `xyz`) = (?,?)",
                                 found.getID(), targetBlock.getX() + "," + (targetBlock.getY() + 1) + "," + targetBlock.getZ());
                         break;
                     default:

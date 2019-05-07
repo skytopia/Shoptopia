@@ -1,6 +1,6 @@
 name: Shoptopia
-main: Main
-version: 1.0
+main: solar.rpg.shoptopia.Main
+version: 1.1
 depend: [Skyblock, Vault]
 commands:
    shop:

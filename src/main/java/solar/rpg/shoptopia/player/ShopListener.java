@@ -303,9 +303,15 @@ public abstract class ShopListener implements Listener {
         if (event.getClickedBlock() == null) return;
         if (!CLICKSPACE.containsKey(event.getClickedBlock().getLocation())) return;
 
+        // Ignore if this is a player-based showcase that they own.
+        Showcase found = CLICKSPACE.get(event.getClickedBlock().getLocation());
+        if (!found.isAdminShop()) {
+            Island at = solar.rpg.skyblock.Main.instance.main().islands().getIslandAt(event.getClickedBlock().getLocation());
+            if (at.members().isMember(event.getPlayer().getUniqueId())) return;
+        }
+
         // Cancel the event and process the showcase interaction.
         event.setCancelled(true);
-        Showcase found = CLICKSPACE.get(event.getClickedBlock().getLocation());
 
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
             // Either buy or preview the buy price.

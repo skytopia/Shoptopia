@@ -61,6 +61,8 @@ public class Main extends JavaPlugin {
             }
         };
 
+        // Setup commands handler.
+        COMMANDS = new Commands(this);
 
         if (!getHandler().setupEconomy()) {
             log(Level.SEVERE, "Unable to hook into economy plugin, disabling...");

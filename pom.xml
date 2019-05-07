@@ -10,6 +10,11 @@
     <version>1.1</version>
     <description>Provides an interactive showcase shop system delivered through XML &amp; MySQL.</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.class>solar.rpg.shoptopia.Main</main.class>
+    </properties>
+
     <organization>
         <name>Skytopia</name>
         <url>https://rpg.solar/</url>
@@ -47,8 +52,8 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
             <version>1.12.2-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
