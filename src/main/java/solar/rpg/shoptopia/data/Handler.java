@@ -7,7 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import solar.rpg.shoptopia.Main;
-import solar.rpg.skyblock.util.stored.sql.Database;
+import solar.rpg.skyblock.stored.Database;
 
 import java.util.Collection;
 import java.util.HashMap;

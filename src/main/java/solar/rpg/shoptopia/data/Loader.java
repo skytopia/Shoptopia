@@ -10,8 +10,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import solar.rpg.shoptopia.Main;
-import solar.rpg.skyblock.util.stored.settings.Settings;
-import solar.rpg.skyblock.util.stored.sql.Database;
+import solar.rpg.skyblock.stored.Database;
+import solar.rpg.skyblock.stored.Settings;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

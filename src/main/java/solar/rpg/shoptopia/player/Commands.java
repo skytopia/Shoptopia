@@ -13,7 +13,7 @@ import solar.rpg.shoptopia.Main;
 import solar.rpg.shoptopia.data.PurchaseData;
 import solar.rpg.shoptopia.data.Showcase;
 import solar.rpg.skyblock.island.Island;
-import solar.rpg.skyblock.util.stored.settings.Settings;
+import solar.rpg.skyblock.stored.Settings;
 
 import static org.bukkit.ChatColor.*;
 

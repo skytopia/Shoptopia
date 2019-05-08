@@ -65,7 +65,7 @@
         <dependency>
             <groupId>solar.rpg</groupId>
             <artifactId>floatinganvil</artifactId>
-            <version>3.1</version>
+            <version>3.1.1</version>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
