@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import solar.rpg.shoptopia.Main;
 import solar.rpg.shoptopia.data.Showcase;
-import solar.rpg.skyblock.cb.Title;
+import solar.rpg.skyblock.util.Title;
 import solar.rpg.skyblock.island.Island;
 import solar.rpg.skyblock.stored.Settings;
 
