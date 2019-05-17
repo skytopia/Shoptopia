@@ -20,9 +20,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import solar.rpg.shoptopia.Main;
 import solar.rpg.shoptopia.data.Showcase;
-import solar.rpg.skyblock.util.Title;
 import solar.rpg.skyblock.island.Island;
 import solar.rpg.skyblock.stored.Settings;
+import solar.rpg.skyblock.util.Title;
 
 import java.text.DecimalFormat;
 import java.util.*;
@@ -98,6 +98,7 @@ public abstract class ShopListener implements Listener {
         //If items are tampered with, teleport them back.
         new BukkitRunnable() {
             public void run() {
+                // Remove random items on showcase half slabs.
                 for (Item item : Bukkit.getWorld("world").getEntitiesByClass(Item.class)) {
                     for (Showcase sc : getShowcases())
                         if (Showcase.matchXZ(sc.getPosition(), item.getLocation()))
@@ -106,6 +107,11 @@ public abstract class ShopListener implements Listener {
                                 sc.respawn();
                             }
                 }
+
+                // Check that the Showcase item hasn't despawned.
+                for (Showcase sc : getShowcases())
+                    if(!sc.getShowcaseDrop().isValid())
+                        sc.respawn();
             }
         }.runTaskTimer(PLUGIN, 0L, 100L);
     }
