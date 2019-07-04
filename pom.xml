@@ -54,7 +54,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.14.2-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>solar.rpg</groupId>
-            <artifactId>floatinganvil</artifactId>
+            <artifactId>skyblock</artifactId>
             <version>3.1.1</version>
         </dependency>
         <dependency>

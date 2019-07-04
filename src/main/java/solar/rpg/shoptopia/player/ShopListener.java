@@ -131,7 +131,7 @@ public abstract class ShopListener implements Listener {
      *
      * @param toRemove The showcase to remove.
      */
-    public void removeClickspace(Showcase toRemove) {
+    void removeClickspace(Showcase toRemove) {
         Set<Location> set = new HashSet<>();
         // Go through entry set and identify keys that belong to the showcase.
         for (Map.Entry<Location, Showcase> entry : CLICKSPACE.entrySet())
@@ -238,7 +238,7 @@ public abstract class ShopListener implements Listener {
 
                 // Withdraw the money, notify the player.
                 PLUGIN.getHandler().getEconomy().withdrawPlayer(target, sc.getBuyData().getPrice());
-                target.playSound(target.getLocation(), Sound.ENTITY_EVOCATION_FANGS_ATTACK, 0.7F, 0.5F);
+                target.playSound(target.getLocation(), Sound.ENTITY_EVOKER_FANGS_ATTACK, 0.7F, 0.5F);
                 Title.showTitle(target, BUY, BUY_SUCCESS.replace("x", sc.getBuyData().getAmount() + "").replace("y", FORMAT.format(sc.getBuyData().getPrice())), 20, 100, 20);
             } else {
                 target.playSound(target.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
@@ -273,7 +273,7 @@ public abstract class ShopListener implements Listener {
                 // Remove items from inventory. Credit player's balance.
                 target.getInventory().removeItem(sc.getSellData().getStock());
                 PLUGIN.getHandler().getEconomy().depositPlayer(target, sc.getSellData().getPrice());
-                target.playSound(target.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 2F, 0.5F);
+                target.playSound(target.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 2F, 0.5F);
                 Title.showTitle(target, SELL, SELL_SUCCESS.replace("x", sc.getSellData().getAmount() + "").replace("y", FORMAT.format(sc.getSellData().getPrice())), 20, 100, 20);
             } else {
                 // Notify player that they do not have sufficient items to sell.

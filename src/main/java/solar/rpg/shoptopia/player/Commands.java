@@ -153,8 +153,7 @@ public class Commands {
                             PurchaseData buyData = new PurchaseData(showcaseProduct, (double) price);
 
                             // Create a half slab to put on top of the chest.
-                            targetBlock.getRelative(BlockFace.UP).setType(Material.WOOD_STEP);
-                            targetBlock.getRelative(BlockFace.UP).setData((byte) 1);
+                            targetBlock.getRelative(BlockFace.UP).setType(Material.SPRUCE_SLAB);
 
                             // Create the Showcase object and place it in the player showcases map.
                             Showcase created = new Showcase(PLUGIN, chest.getX(), chest.getY() + 1, chest.getZ(), toSell, buyData, null, false, found.getID(), chest.getWorld());
