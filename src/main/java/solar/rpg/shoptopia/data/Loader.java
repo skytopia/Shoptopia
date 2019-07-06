@@ -2,10 +2,8 @@ package solar.rpg.shoptopia.data;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.inventory.meta.SpawnEggMeta;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -180,7 +178,7 @@ class Loader {
         else if (reg.length == 1)
             return new ItemStack(Material.valueOf(reg[0]), amt);
         else
-            return applyData(Material.valueOf(reg[0]), amt, reg[1]);
+            throw new IllegalArgumentException("Unexpected data: " + reg[1]);
     }
 
     /**
@@ -196,26 +194,5 @@ class Loader {
         meta.setOwningPlayer(Bukkit.getOfflinePlayer(player));
         SKULL.setItemMeta(meta);
         return SKULL;
-    }
-
-    /**
-     * Applies normal metadata by parsing as Short.
-     * If this is unsuccessful, parse as an EntityType for spawn egg.
-     *
-     * @param mat  The material of the resulting item stack.
-     * @param amt  Amount of the item.
-     * @param data Provided data to apply.
-     * @return Resulting item with correct data applied.
-     */
-    private ItemStack applyData(Material mat, int amt, String data) {
-        try {
-            return new ItemStack(mat, amt, Short.parseShort(data));
-        } catch (NumberFormatException ex) {
-            ItemStack result = new ItemStack(mat, amt);
-            SpawnEggMeta meta = (SpawnEggMeta) result.getItemMeta();
-            meta.setSpawnedType(EntityType.fromName(data));
-            result.setItemMeta(meta);
-            return result;
-        }
     }
 }

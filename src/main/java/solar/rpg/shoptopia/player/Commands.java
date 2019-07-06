@@ -162,7 +162,7 @@ public class Commands {
 
                             // Reflect the creation of this new player shop in the database table.
                             solar.rpg.skyblock.Main.instance.main().sql().queue("INSERT INTO `Shops`(`owner_id`, `amount`, `price`, `item`, `xyz`) VALUES (?,?,?,?,?)",
-                                    found.getID(), amount, price, showcaseProduct.getType() + ":" + showcaseProduct.getData().getData(), chest.getX() + "," + (chest.getY() + 1) + "," + chest.getZ());
+                                    found.getID(), amount, price, showcaseProduct.getType(), chest.getX() + "," + (chest.getY() + 1) + "," + chest.getZ());
                             break;
                         } catch (NumberFormatException ex) {
                             sender.sendMessage(ARGUMENT_CREATE_ERROR);

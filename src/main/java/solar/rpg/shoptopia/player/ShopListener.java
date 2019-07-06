@@ -110,7 +110,7 @@ public abstract class ShopListener implements Listener {
 
                 // Check that the Showcase item hasn't despawned.
                 for (Showcase sc : getShowcases())
-                    if(!sc.getShowcaseDrop().isValid())
+                    if (!sc.getShowcaseDrop().isValid())
                         sc.respawn();
             }
         }.runTaskTimer(PLUGIN, 0L, 100L);
@@ -233,7 +233,7 @@ public abstract class ShopListener implements Listener {
                 // Remove stock if it is a player shop. Credit the island owner's balance.
                 if (!sc.isAdminShop()) {
                     ((Chest) block.getState()).getBlockInventory().removeItem(sc.getBuyData().getStock());
-                    PLUGIN.getHandler().getEconomy().depositPlayer(found.members().getOwnerIGN(), sc.getBuyData().getPrice());
+                    PLUGIN.getHandler().getEconomy().depositPlayer(Bukkit.getOfflinePlayer(found.members().getOwner()), sc.getBuyData().getPrice());
                 }
 
                 // Withdraw the money, notify the player.
