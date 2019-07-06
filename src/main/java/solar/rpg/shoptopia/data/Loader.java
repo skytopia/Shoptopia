@@ -191,9 +191,9 @@ class Loader {
      * @return The resulting player head item stack..
      */
     private ItemStack playerHead(String player, int amt) {
-        ItemStack SKULL = new ItemStack(Material.SKULL_ITEM, amt, (short) 3);
+        ItemStack SKULL = new ItemStack(Material.PLAYER_HEAD, amt);
         SkullMeta meta = (SkullMeta) SKULL.getItemMeta();
-        meta.setOwner(player);
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(player));
         SKULL.setItemMeta(meta);
         return SKULL;
     }
