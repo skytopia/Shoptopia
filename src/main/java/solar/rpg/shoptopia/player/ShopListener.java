@@ -98,11 +98,11 @@ public abstract class ShopListener implements Listener {
         //If items are tampered with, teleport them back.
         new BukkitRunnable() {
             public void run() {
-                // Remove random items on showcase half slabs.
                 for (Item item : Bukkit.getWorld("world").getEntitiesByClass(Item.class)) {
                     for (Showcase sc : getShowcases())
                         if (Showcase.matchXZ(sc.getPosition(), item.getLocation()))
-                            if (!sc.getShowcaseDrop().equals(item)) {
+                            // Remove items of same type on top of showcase to prevent tampering.
+                            if (!sc.getShowcaseDrop().equals(item) && sc.getShowcaseDrop().getItemStack().getType().equals(item.getItemStack().getType())) {
                                 item.remove();
                                 sc.respawn();
                             }
