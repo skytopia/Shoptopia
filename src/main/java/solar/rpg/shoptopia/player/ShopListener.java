@@ -46,6 +46,7 @@ public abstract class ShopListener implements Listener {
     /* Predefined messages. */
     //TODO: Extract these to an external file.
     private final String SELL = GOLD + "Sell!";
+    private final String SOLD = GOLD + "Sold!";
     private final String SELL_AMT_FOR = RED + "Sell x of this item for y ƒ!";
     private final String SELL_SUCCESS = RED + "Sold x of this item for y ƒ!";
     private final String NO_SELL = RED + "You cannot sell here.";
@@ -53,6 +54,7 @@ public abstract class ShopListener implements Listener {
     private final String INSUFFICIENT_ITEMS = RED + "You do not have enough items to sell!";
 
     private final String BUY = GOLD + "Buy!";
+    private final String BOUGHT = GOLD + "Bought!";
     private final String BUY_AMT_FOR = RED + "Purchase x of this item for y ƒ!";
     private final String BUY_SUCCESS = RED + "Purchased x of this item for y ƒ!";
     private final String NO_BUY = RED + "This item cannot be purchased.";
@@ -239,7 +241,7 @@ public abstract class ShopListener implements Listener {
                 // Withdraw the money, notify the player.
                 PLUGIN.getHandler().getEconomy().withdrawPlayer(target, sc.getBuyData().getPrice());
                 target.playSound(target.getLocation(), Sound.ENTITY_EVOKER_FANGS_ATTACK, 0.7F, 0.5F);
-                Title.showTitle(target, BUY, BUY_SUCCESS.replace("x", sc.getBuyData().getAmount() + "").replace("y", FORMAT.format(sc.getBuyData().getPrice())), 20, 100, 20);
+                Title.showTitle(target, BOUGHT, BUY_SUCCESS.replace("x", sc.getBuyData().getAmount() + "").replace("y", FORMAT.format(sc.getBuyData().getPrice())), 20, 100, 20);
             } else {
                 target.playSound(target.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
                 target.sendMessage(INSUFFICIENT_MONEY);
@@ -274,7 +276,7 @@ public abstract class ShopListener implements Listener {
                 target.getInventory().removeItem(sc.getSellData().getStock());
                 PLUGIN.getHandler().getEconomy().depositPlayer(target, sc.getSellData().getPrice());
                 target.playSound(target.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 2F, 0.5F);
-                Title.showTitle(target, SELL, SELL_SUCCESS.replace("x", sc.getSellData().getAmount() + "").replace("y", FORMAT.format(sc.getSellData().getPrice())), 20, 100, 20);
+                Title.showTitle(target, SOLD, SELL_SUCCESS.replace("x", sc.getSellData().getAmount() + "").replace("y", FORMAT.format(sc.getSellData().getPrice())), 20, 100, 20);
             } else {
                 // Notify player that they do not have sufficient items to sell.
                 target.playSound(target.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
@@ -322,13 +324,13 @@ public abstract class ShopListener implements Listener {
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
             // Either buy or preview the buy price.
             if (event.getPlayer().isSneaking())
-                previewBuy(found, event.getPlayer());
-            else tryBuy(found, event.getPlayer());
+                tryBuy(found, event.getPlayer());
+            else previewBuy(found, event.getPlayer());
         } else if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             // Either sell or preview the sell price.
             if (event.getPlayer().isSneaking())
-                previewSell(found, event.getPlayer());
-            else trySell(found, event.getPlayer());
+                trySell(found, event.getPlayer());
+            else previewSell(found, event.getPlayer());
         }
     }
 }
