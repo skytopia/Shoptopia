@@ -89,6 +89,7 @@ public class Showcase {
         World world = SHOWCASE_LOCATION.getWorld();
         if (SHOWCASE_DROP != null) {
             if (SHOWCASE_DROP.isValid() && !SHOWCASE_DROP.isDead()) return;
+            if (!SHOWCASE_LOCATION.getChunk().isLoaded()) return;
             getShopListener().getExempt().remove(SHOWCASE_DROP);
             SHOWCASE_DROP.remove();
         }

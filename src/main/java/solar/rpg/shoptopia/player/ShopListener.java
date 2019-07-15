@@ -112,8 +112,8 @@ public abstract class ShopListener implements Listener {
 
                 // Check that the Showcase item hasn't despawned.
                 for (Showcase sc : getShowcases())
-                    if (!sc.getShowcaseDrop().isValid())
-                        sc.respawn();
+                    if (!sc.getShowcaseDrop().isValid() && sc.getShowcaseDrop().isDead())
+                            sc.respawn();
             }
         }.runTaskTimer(PLUGIN, 0L, 100L);
     }
